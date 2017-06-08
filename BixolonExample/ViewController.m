@@ -7,23 +7,21 @@
 //
 
 #import "ViewController.h"
+#import "BixolonPrinter.h"
 
 @interface ViewController ()
-
+@property(nonatomic, strong)BixolonPrinter *printer;
 @end
 
 @implementation ViewController
 
 - (void)viewDidLoad {
   [super viewDidLoad];
-  // Do any additional setup after loading the view, typically from a nib.
+  self.printer = [[BixolonPrinter alloc] init];
 }
 
-
-- (void)didReceiveMemoryWarning {
-  [super didReceiveMemoryWarning];
-  // Dispose of any resources that can be recreated.
+- (IBAction)print:(id)sender {
+  [self.printer printTest];
 }
-
 
 @end
