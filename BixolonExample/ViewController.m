@@ -17,7 +17,12 @@
 
 - (void)viewDidLoad {
   [super viewDidLoad];
+#if TARGET_IPHONE_SIMULATOR
+  // The Bixolon SDK Crashes when `UPOSPrinterController` is allocated on the simulator
+  self.printer = nil; // Or better, a mock
+#else
   self.printer = [[BixolonPrinter alloc] init];
+#endif
 }
 
 - (IBAction)print:(id)sender {
